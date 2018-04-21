@@ -1,0 +1,21 @@
+<div class="qf-table-container">
+  <div class="qf-table">
+    <div class="qf-table-content">
+      <table>
+        <ng-template [ngTemplateOutlet]="tableInnerTemplate"></ng-template>
+      </table>
+    </div>
+  </div>
+</div>
+<ng-template #tableInnerTemplate>
+  <ng-template [ngTemplateOutlet]="colGroupTemplate"></ng-template>
+  <thead class="qf-table-thead">
+    <ng-template [ngTemplateOutlet]="qfTableHeadComponent?.template"></ng-template>
+  </thead>
+  <ng-content></ng-content>
+</ng-template>
+<ng-template #colGroupTemplate>
+  <colgroup>
+    <col *ngFor="let th of listOfQfThComponent" [style.width]="th.qfWidth" [style.minWidth]="th.qfWidth">
+  </colgroup>
+</ng-template>
